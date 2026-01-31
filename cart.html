@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title_cart">سلة المشتريات - AURA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body class="cart-page page-body">
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="main-header header-scrolled">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">AURA</a>
+            <div class="nav__actions">
+                <button class="lang-switch" id="lang-switch-btn">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="main-content">
+        <div class="cart-page-container container">
+
+            <!-- CART VIEW -->
+            <div id="cart-view">
+                <h1 class="page-title" data-translate="cart_title">سلة المشتريات</h1>
+                <div class="cart-layout">
+                    <div class="cart-items-list">
+                        <!-- عناصر السلة سيتم إضافتها هنا -->
+                    </div>
+                    <div class="cart-summary">
+                        <h2 class="summary-title" data-translate="summary_title">ملخص الطلب</h2>
+                        <div class="summary-row">
+                            <span data-translate="summary_subtotal">المجموع الفرعي</span>
+                            <span id="summary-subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span data-translate="summary_total">المجموع الكلي</span>
+                            <span id="summary-total">$0.00</span>
+                        </div>
+                        <button class="btn btn-primary checkout-btn" id="go-to-details-btn">
+                            <span data-translate="checkout_btn">الانتقال إلى الدفع</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHECKOUT DETAILS VIEW -->
+            <div id="checkout-details-view" class="hidden">
+                <h1 class="page-title" data-translate="checkout_title">تفاصيل الشحن</h1>
+                <form id="checkout-form" class="checkout-form">
+                    <div class="form-section">
+                        <h3 data-translate="checkout_contact_info">معلومات التواصل</h3>
+                        <input type="email" name="email" data-translate-placeholder="placeholder_email" placeholder="البريد الإلكتروني" required>
+                    </div>
+                    <div class="form-section">
+                        <h3 data-translate="checkout_shipping_address">عنوان الشحن</h3>
+                        <div class="form-grid">
+                            <input type="text" name="firstname" data-translate-placeholder="placeholder_firstname" placeholder="الاسم الأول" required>
+                            <input type="text" name="lastname" data-translate-placeholder="placeholder_lastname" placeholder="الاسم الأخير" required>
+                        </div>
+                        <input type="text" name="address" data-translate-placeholder="placeholder_address" placeholder="العنوان" required>
+                        <input type="text" name="city" data-translate-placeholder="placeholder_city" placeholder="المدينة" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="back-to-cart-btn" class="btn btn-secondary" data-translate="back_to_cart_btn">العودة إلى السلة</button>
+                        <button type="submit" class="btn btn-primary place-order-btn">
+                            <i class="ri-secure-payment-line"></i>
+                            <span data-translate="place_order_btn">تأكيد الطلب والدفع</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-notification" class="toast-notification">
+        <i class="ri-check-line"></i>
+        <span id="toast-message"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
